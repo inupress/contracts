@@ -1,0 +1,14 @@
+{
+    "name": "inupress/contracts",
+    "description": "Public contracts of the Inupress CMS",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "^12.0 || ^13.0"
+    },
+    "autoload": {
+        "psr-4": { "Inupress\\Contracts\\": "src/" }
+    },
+    "minimum-stability": "stable"
+}
