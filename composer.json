@@ -8,7 +8,17 @@
         "illuminate/contracts": "^12.0 || ^13.0"
     },
     "autoload": {
-        "psr-4": { "Inupress\\Contracts\\": "src/" }
+        "psr-4": {
+            "Inupress\\Contracts\\": "src/"
+        }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "suggest": {
+        "filament/filament": "Needed for plugins that implement ProvidesFilament"
+    }
 }

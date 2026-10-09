@@ -1,0 +1,78 @@
+{
+    "HookRegistry": {
+        "kind": "interface",
+        "methods": [
+            "addAction(string $hook, callable $callback, int $priority): void",
+            "doAction(string $hook, mixed ...$args): void",
+            "addFilter(string $hook, callable $callback, int $priority): void",
+            "applyFilters(string $hook, mixed $value, mixed ...$args): mixed",
+            "hasAction(string $hook): bool",
+            "hasFilter(string $hook): bool"
+        ]
+    },
+    "Hooks": {
+        "kind": "class",
+        "const": {
+            "ADMIN_MENU": "admin.menu",
+            "DASHBOARD_WIDGETS": "dashboard.widgets",
+            "CONTENT_BEFORE_SAVE": "content.before_save",
+            "CONTENT_SAVED": "content.saved",
+            "CONTENT_RENDER": "content.render",
+            "PLUGIN_ENABLED": "plugin.enabled",
+            "PLUGIN_DISABLED": "plugin.disabled"
+        }
+    },
+    "PermissionRegistrar": {
+        "kind": "interface",
+        "methods": [
+            "register(string $pluginId, array $permissions): void",
+            "all(): array"
+        ]
+    },
+    "Plugin": {
+        "kind": "interface",
+        "methods": [
+            "manifest(): Inupress\\Contracts\\PluginManifest",
+            "register(): void",
+            "boot(): void"
+        ]
+    },
+    "PluginManifest": {
+        "kind": "class",
+        "methods": [
+            "__construct(string $id, string $name, string $version, string $provider, array $requires, array $provides): none",
+            "fromComposer(string $package, string $version, array $extra): self"
+        ]
+    },
+    "PluginRepository": {
+        "kind": "interface",
+        "methods": [
+            "enabled(): array",
+            "has(string $id): bool",
+            "get(string $id): ?Inupress\\Contracts\\PluginManifest"
+        ]
+    },
+    "ProvidesFilament": {
+        "kind": "interface",
+        "methods": [
+            "filamentPlugin(): object"
+        ]
+    },
+    "SettingsRegistry": {
+        "kind": "interface",
+        "methods": [
+            "register(string $pluginId, string $group, array $schema): void",
+            "schema(string $pluginId, string $group): array",
+            "groups(string $pluginId): array",
+            "get(string $pluginId, string $group, string $key, mixed $default): mixed"
+        ]
+    },
+    "Theme": {
+        "kind": "interface",
+        "methods": [
+            "id(): string",
+            "name(): string",
+            "path(string $relative): string"
+        ]
+    }
+}
