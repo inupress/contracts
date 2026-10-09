@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Inupress\Contracts;
 
 /**
- * Implemented by plugins that add something to the admin panel.
- * Kept separate from Plugin so headless plugins do not need Filament.
+ * Implemented by the plugin's service provider (PackageServiceProvider) when the plugin
+ * adds something to the admin panel. Headless plugins simply do not implement it,
+ * so they do not need Filament.
  */
 interface ProvidesFilament
 {

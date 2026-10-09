@@ -29,14 +29,6 @@
             "all(): array"
         ]
     },
-    "Plugin": {
-        "kind": "interface",
-        "methods": [
-            "manifest(): Inupress\\Contracts\\PluginManifest",
-            "register(): void",
-            "boot(): void"
-        ]
-    },
     "PluginManifest": {
         "kind": "class",
         "methods": [
