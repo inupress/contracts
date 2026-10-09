@@ -32,14 +32,13 @@
     "PluginManifest": {
         "kind": "class",
         "methods": [
-            "__construct(string $id, string $name, string $version, string $provider, array $requires, array $provides): none",
-            "fromComposer(string $package, string $version, array $extra): self"
+            "__construct(string $id, string $name, string $version, string $path): none"
         ]
     },
     "PluginRepository": {
         "kind": "interface",
         "methods": [
-            "enabled(): array",
+            "all(): array",
             "has(string $id): bool",
             "get(string $id): ?Inupress\\Contracts\\PluginManifest"
         ]

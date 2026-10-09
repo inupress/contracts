@@ -9,8 +9,8 @@ Everything in `src/`, and nothing else:
 | Item | Kind | Purpose |
 |---|---|---|
 | `ProvidesFilament` | interface | Optional, implemented by the plugin's service provider: adds something to the admin panel. |
-| `PluginManifest` | final readonly class | Immutable plugin description, built from `extra.inupress`. |
-| `PluginRepository` | interface | Read-only view of enabled plugins. |
+| `PluginManifest` | final readonly class | Immutable description of an installed plugin (id, name, version, path). |
+| `PluginRepository` | interface | Read-only list of installed plugins (Composer packages of type `inupress-plugin`). |
 | `HookRegistry` | interface | Actions and filters. |
 | `Hooks` | final class | Hook name constants. The strings are frozen within a major version. |
 | `SettingsRegistry` | interface | Settings groups declared by plugins. |
@@ -36,19 +36,13 @@ Until 1.0 anything may change, but each change is still recorded as a decision.
 
 ## Plugin entry point
 
-The entry point of a plugin is its service provider (`Spatie\LaravelPackageTools\PackageServiceProvider`, with `public static string $name`), like any Filament plugin. There is no separate lifecycle interface: the core registers the provider of every *enabled* plugin with `$app->register()`, a disabled plugin is never instantiated.
-
-## Plugin manifest
+The entry point of a plugin is its service provider (`Spatie\LaravelPackageTools\PackageServiceProvider`, with `public static string $name`), like any Filament plugin. The package has `"type": "inupress-plugin"` and lists the provider in `extra.laravel.providers`; Laravel boots it. Plugins are activated and removed only with Composer.
 
 ```json
-"extra": {
-  "inupress": {
-    "id": "inupress/blog",
-    "provider": "Inupress\\Blog\\BlogPlugin",
-    "requires": { "core": "^1.0" },
-    "provides": ["blog.posts"]
-  }
+{
+  "name": "acme/blog",
+  "type": "inupress-plugin",
+  "require": { "inupress/core": "^0.1" },
+  "extra": { "laravel": { "providers": ["Acme\\Blog\\BlogServiceProvider"] } }
 }
 ```
-
-Do not list the provider under `extra.laravel.providers`: only the core registers plugins.
