@@ -42,6 +42,7 @@ The entry point of a plugin is its service provider (`Spatie\LaravelPackageTools
 {
   "name": "acme/blog",
   "type": "inupress-plugin",
+  "keywords": ["inupress", "inupress-plugin"],
   "require": { "inupress/core": "^0.1" },
   "extra": { "laravel": { "providers": ["Acme\\Blog\\BlogServiceProvider"] } }
 }
