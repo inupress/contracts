@@ -63,7 +63,11 @@
         "methods": [
             "id(): string",
             "name(): string",
-            "path(string $relative): string"
+            "path(string $relative): string",
+            "parent(): ?string",
+            "views(): string",
+            "styles(): array",
+            "scripts(): array"
         ]
     }
 }
