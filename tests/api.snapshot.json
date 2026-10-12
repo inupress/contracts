@@ -18,6 +18,7 @@
             "CONTENT_BEFORE_SAVE": "content.before_save",
             "CONTENT_SAVED": "content.saved",
             "CONTENT_RENDER": "content.render",
+            "CONTENT_EDITOR": "content.editor",
             "PLUGIN_ENABLED": "plugin.enabled",
             "PLUGIN_DISABLED": "plugin.disabled"
         }

@@ -25,6 +25,14 @@ final class Hooks
     /** Filter: HTML of rendered content. */
     public const CONTENT_RENDER = 'content.render';
 
+    /**
+     * Filter: the admin form field used for a block of content, so a plugin can replace the
+     * built-in editor. Arguments: `string $name` (the field), `string $source` (who asks:
+     * `pages`, `widgets`). The callback returns a Filament field; `inupress/editor-ckeditor`
+     * answers with CKEditor.
+     */
+    public const CONTENT_EDITOR = 'content.editor';
+
     /** Action: a plugin has been enabled. Argument: plugin id. */
     public const PLUGIN_ENABLED = 'plugin.enabled';
 
